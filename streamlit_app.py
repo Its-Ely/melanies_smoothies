@@ -15,8 +15,10 @@ st.write('The name on your smoothie will be ', name_on_order)
 
 cnx = st.connection("snowflake")
 session = cnx.session()
-#my_dataframe = session.table("smoothies.public.fruit_options").select(col('fruit_name'))
-#st.dataframe(data=my_dataframe, use_container_width=True)
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('fruit_name'),col('search_on')
+st.dataframe(data=my_dataframe, use_container_width=True)
+st.stop()
+                                                                      
 my_dataframe = session.table("smoothies.public.orders") \
     .filter(col("ORDER_FILLED") == 0) \
     .collect()
